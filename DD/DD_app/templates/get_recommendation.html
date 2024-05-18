@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Get_Recommendations_User</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <script src="{% static 'js_1/jquery2.0.3.min.js' %}"></script>
+    <script src="{% static 'js_1/raphael-min.js' %}"></script>
+    <script src="{% static 'js_1/morris.js' %}"></script>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'datatable/jquery.dataTables.min.css' %}">
+    <script type="text/javascript" src="{% static 'datatable/jquery.dataTables.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'datatable/bootstable.min.js' %}"></script>
+
+    <script type="text/javascript">
+    
+        $(document).ready(function(){
+
+            $('#table').DataTable();
+        })
+    </script>
+    <style>
+        #table{background:lightslategray ;color: black}
+        td:hover{background-color: pink;}
+        tr:hover{background-color: pink;}
+        body{background: linear-gradient(to right, #dd5e89, #f7bb97);}
+ 
+       
+    </style>
+    
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div>
+        <div >
+            <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+                <a href="#" class="navbar-brand">
+                    <h1 class="m-0 text-white display-4"><span class="text-primary">Rec</span>Song<span class="text-primary"></h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" >
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="{% url 'show_home_user' %}" class="nav-item nav-link active">Home</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sentiment Analysis</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{% url 'reviews_sa' %}" class="dropdown-item">Reviews</a>
+                                <a href="{% url 'lyrics_sa' %}" class="dropdown-item">Lyrics</a>
+                            </div>
+                        </div>
+                        <a href="{% url 'display_recommendations' %}" class="nav-item nav-link active">Recommendations</a>
+                        <a href="{% url 'logout' %}" class="nav-item nav-link" style="color:red;">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <h2 style="text-align: center; margin-top:80px;"><u>Get Songs Recommendations</u></h2><br>
+        <div class="a" style="text-align: center; background-color:lightgray;margin: 40px;">
+            <form class="form-horizontal" action="{% url 'get_recommend' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <br>
+                    <label for="private_key" class="control-label col-sm-5" style="color: black;"><b>Choose Your Current Mood :</b></label><br>
+                   <select name="mood" class="control-label col-sm-2"  id="mood" required>
+                      <option value="Select">Select</option>
+                      <option value="Happy">Happy</option>
+                      <option value="Sad">Sad</option>
+                    </select>
+                </div><br>
+                <input type="submit" class="btn btn-info" Value="Show Recommendations"><br><br>
+            </form>
+        </div>
+    
+    </div>
+    <!-- Carousel End -->
+
+
+
+
+    <!-- Footer Start -->
+    <div style="position: relative; top:174px; background-color:black; height: 57px;">
+        <p class="m-0 text-center" style="padding-top: 20px;">
+            &copy; <a class="font-weight-semi-bold" href="#">RecSong</a>. All Rights Reserved. Designed by
+            <a class="font-weight-semi-bold" href="#">Me</a>
+        </p>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+ <!--    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail/contact.js' %}"></script>
+    <script src="{% static 'js_1/bootstrap.js' %}"></script>
+    <script src="{% static 'js_1/jquery.dcjqaccordion.2.7.js' %}"></script>
+    <script src="{% static 'js_1/scripts.js' %}"></script>
+    <script src="{% static 'js_1/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'js_1/jquery.nicescroll.js' %}"></script>
+    <script src="{% static 'js_1/jquery.scrollTo.js' %}"></script>
+
+   
+</body>
+
+</html>

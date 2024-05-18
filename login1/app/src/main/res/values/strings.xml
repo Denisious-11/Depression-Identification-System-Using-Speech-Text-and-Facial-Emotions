@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">login1</string>
+    <string name="Intro">Ambulance</string>
+    <string name="regs"><b><u>Sign Up</u></b></string>
+</resources>

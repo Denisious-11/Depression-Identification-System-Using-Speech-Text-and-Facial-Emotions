@@ -1,0 +1,25 @@
+https://github.com/swcwang/depression-detection
+
+
+text dataset
+-------------
+* folder is there (tweetscombined.csv)
+
+speech dataset 
+--------------
+
+* ravdess dataset ( sad )
+
+
+image
+-----
+
+* deepface model (PRETRAINED )
+
+OR 
+
+* https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data?select=fer2013.tar.gz
+
+(Facial Expression Recognition DATASET)
+
+(NEED TO TRAIN)

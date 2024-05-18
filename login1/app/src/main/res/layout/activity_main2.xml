@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    tools:context=".MainActivity2"
+    tools:ignore="SpeakableTextPresentCheck">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tarea1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_marginStart="16dp"
+            android:hint="Text"
+            app:hintTextColor="#287CB4"
+            app:boxStrokeColor="#287CB4"
+            android:layout_marginEnd="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tarea2"
+                android:textColor="@color/black"
+                android:textCursorDrawable="@null"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="6"
+                android:gravity="top"
+                android:overScrollMode="always"
+                android:scrollbars="vertical"
+                android:scrollbarStyle="insideInset"
+                android:scrollHorizontally="false"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cam_b1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tarea1"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/curv1"
+            android:text="Capture Image"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_below="@id/cam_b1"
+            android:id="@+id/img_view"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/userrr"
+            app:strokeColor="@color/black"
+            app:strokeWidth="5dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/img_view"
+            android:gravity="center"
+            android:backgroundTint="@color/red"
+            android:textColor="@color/white"
+            android:text="Record audio"
+            android:id="@+id/rcrd">
+
+        </androidx.appcompat.widget.AppCompatButton>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:text=""
+            android:layout_centerInParent="true"
+            android:layout_below="@id/rcrd"
+
+            android:textSize="20dp"
+            android:textColor="@color/yellow"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tid"></TextView>
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/pre_b3"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/img_view"-->
+<!--            android:layout_marginStart="120dp"-->
+<!--            android:layout_marginTop="120dp"-->
+<!--            android:layout_marginEnd="120dp"-->
+<!--            android:background="@drawable/cuv2"-->
+<!--            android:text="Predict"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="16sp" />-->
+    </RelativeLayout>
+    </ScrollView>
+</FrameLayout>

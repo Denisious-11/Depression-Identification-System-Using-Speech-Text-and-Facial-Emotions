@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'login.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form class="box" style="margin-top: 105px;">
+                    <h2 style="color: orange;">Depression Detector</h2>
+                    <h2 style="color: white;">Login</h2>
+                    <p class="text-muted"> Please enter your login and password!</p> 
+                    <input type="text" name="" placeholder="Username" id="uname"> 
+                    <input type="password" name="" placeholder="Password" id="pass"> 
+                   
+                    <button type="button" id="log" name="" value="Login" class="btn btn-primary">Login</button><br><br>
+                    <!-- <a class="forgot text-muted" href="{% url 'show_register' %}">Register here</a> <br><br> -->
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    $(document).ready(function(){
+        $("#log").click(function(){
+            username=$("#uname").val()
+            password=$("#pass").val()
+            if((username=='')||(password==''))
+            {
+                alert("Fill all fields")
+            }
+            else
+            {
+                $.ajax({
+                url:"/check_login/",
+                datatype:"json",
+                data:{
+                "uname":username,
+                "password":password,
+                },
+                success:function(any)
+                {
+                   
+                    if(any=="Invalid")
+                    {
+                        alert(any);
+                    }
+                    
+                    else if(any=="Login Successful")
+                    {
+                        alert(any);
+                        window.location.href="/show_home_user/";
+                    }
+
+                }
+                })
+            }
+
+            
+        })
+    })
+  </script>
+</body>
+</html>

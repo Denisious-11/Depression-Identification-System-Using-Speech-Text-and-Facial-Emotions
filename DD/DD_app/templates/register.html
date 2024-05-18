@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="static/register.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container" >
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card" >
+                <form  class="box" style="margin-top: 50px; ">
+                    <h2 style="color: orange;">Depression Detector</h2>
+                    <h2 style="color: white;">Register</h2>
+
+                    <input type="text" name="name" placeholder="Username" required="required" id="uname"> <span id="unameerror"></span>
+                    <input type="text" name="emailid" placeholder="Email id" required="required" id="emailid"> <span id="emailiderror"></span>
+                    <input type="text" name="phone" placeholder="Phone number" required="required" id="phone"><span id="phoneerror"></span>
+                    <input type="text" name="age" placeholder="Age" required="required" id="age"><span id="ageerror"></span>
+                    <select id="gender" class="form-control" style="width: 240px; margin-left:90px;" name="gender" required="">
+                      <option>Select Gender</option> 
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select><br>
+                    <input type="password" name="pass" placeholder="Password" required="required" id="pass"><span id="passerror"></span>
+                    <input type="password" name="pass" placeholder="Confirm Password" required="required" id="cpass"><span id="passerror"></span>
+                    
+                    <button type="button" id="reg" name="" value="Register" class="btn btn-primary">Register</button><br><br>
+                    <a class="forgot text-muted" href="{% url 'display_login' %}">Already have an account? Go to Login</a> <br><br>
+
+                </form>
+            </div>
+        </div>
+        <div style="margin-top: 870px;">
+        </div>
+    </div>
+
+
+  </div>
+  
+
+  <script>
+        $(document).ready(function(){
+            $("#reg").click(function(){
+              
+              username=$("#uname").val()
+              password=$("#pass").val()
+              email_id=$("#emailid").val()
+              phone=$("#phone").val()
+              gender=$("#gender").val()
+              age=$("#age").val()
+              cpass=$("#cpass").val()
+
+              if((username=='')||(password=='')||(phone=='')||(email_id=='')||(gender=='Select Gender')||(age==''))
+              {
+                alert("Fill all fields");
+              }
+              else if(password!=cpass)
+              {
+                alert("Password should be same");
+              }
+              else if(username.length<5)
+              {
+                alert("Username minimum 5 character is required");
+              }
+              else if(password.length<5)
+              {
+                alert("Password length should not be less than 5 Characters");
+              }
+              else if(phone.length==10)
+              {
+                $.ajax({
+                url:"/register/",
+                datatype:"json",
+                data:{
+                  "uname":username,
+                  "pass":password,
+                  "phone":phone,
+                  "email_id":email_id,
+                  "age":age,
+                  "gender":gender,
+                },
+                success:function(any)
+                {
+                      if(any=='Try valid email id')
+                      {
+                        alert(any);
+                      }
+                      else
+                      {
+                        alert(any);
+                        window.location.href="/display_login/";
+                      }
+                        
+                }
+              })
+                
+              }
+              else
+              {
+                alert("enter valid phone number");
+              }
+            })
+        })
+
+  </script>
+</body>
+</html>

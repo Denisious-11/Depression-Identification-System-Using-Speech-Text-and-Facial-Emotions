@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Home_User</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style type="text/css">
+        #secret{color: #131313;}
+        #secret:hover{color: white;}
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div>
+        <div >
+            <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+                <a href="#" class="navbar-brand">
+                    <h1 class="m-0 text-white display-4"><span class="text-primary">Depression</span>Detector<span class="text-primary"></h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" >
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="{% url 'show_home_user' %}" class="nav-item nav-link active">Home</a>
+                        <!-- <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Check</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="" class="dropdown-item">Reviews</a>
+                                <a href="" class="dropdown-item">Lyrics</a>
+                            </div>
+                        </div> -->
+                        <a href="{% url 'display_check' %}" class="nav-item nav-link active">Check</a>
+                        <a href="{% url 'logout' %}" class="nav-item nav-link" style="color:red;">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div>
+
+                    <input id="u1" type="hidden" value="{{username}}">
+
+                    <input id="out1" type="hidden" value="">
+
+                    <div class="carousel-caption d-flex align-items-center justify-content-center">
+                        <div class="p-5" style="width: 100%; max-width: 900px;">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img id="my_image" class="img-fluid container-fluid"  src="{% static 'images/u_home.jpg' %}" alt="Image" width="200px">
+        <!-- <div class="container">
+        </div> -->
+    </div>
+    <!-- Carousel End -->
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid py-4 px-sm-3 px-md-5" style="background-color:black;position: relative; top:0px;">
+        <p class="m-0 text-center">
+            &copy; <a class="font-weight-semi-bold" href="#">DepressionDetector</a>. All Rights Reserved. Designed by
+            <a class="font-weight-semi-bold" href="#">Me</a>
+        </p>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail/contact.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+   
+</body>
+
+</html>
